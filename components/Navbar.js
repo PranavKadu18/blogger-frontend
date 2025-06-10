@@ -13,6 +13,14 @@ const Navbar = () => {
     }
   }, [darkMode]);
 
+  // Scroll handlers
+  const handleScroll = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <nav
       style={{
@@ -23,33 +31,52 @@ const Navbar = () => {
         alignItems: "center",
         justifyContent: "space-between",
         boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        zIndex: 1000,
       }}
     >
-      <div style={{ fontWeight: 700, fontSize: "1.5rem", letterSpacing: 1 }}>
+      <div
+        style={{
+          fontWeight: 700,
+          fontSize: "1.5rem",
+          letterSpacing: 1,
+          cursor: "pointer",
+        }}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      >
         HAKXCORE
       </div>
       <div style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
         <a
           href="#"
           style={{ color: "#fff", fontWeight: 500, textDecoration: "none" }}
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
         >
           Home
         </a>
         <a
           href="#"
           style={{ color: "#fff", fontWeight: 500, textDecoration: "none" }}
-        >
-          Services
-        </a>
-        <a
-          href="#"
-          style={{ color: "#fff", fontWeight: 500, textDecoration: "none" }}
+          onClick={(e) => {
+            e.preventDefault();
+            handleScroll("blog-section");
+          }}
         >
           Blog
         </a>
         <a
           href="#"
           style={{ color: "#fff", fontWeight: 500, textDecoration: "none" }}
+          onClick={(e) => {
+            e.preventDefault();
+            handleScroll("footer");
+          }}
         >
           Contact
         </a>

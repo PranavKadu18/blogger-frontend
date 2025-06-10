@@ -38,6 +38,7 @@ export default function Home() {
         background: "linear-gradient(135deg, #2eb2ff 0%, #6f86d6 100%)",
         color: "#fff",
         padding: "4rem 0 2rem 0",
+        paddingTop: "80px",
       }}
     >
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 2rem" }}>
@@ -67,6 +68,7 @@ export default function Home() {
         </a>
       </div>
       <div
+        id="blog-section"
         style={{
           maxWidth: 1200,
           margin: "3rem auto 0 auto",
