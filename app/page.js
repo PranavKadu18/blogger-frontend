@@ -1,4 +1,34 @@
-import Image from "next/image";
+import BlogCard from "@/components/BlogCard";
+
+const blogs = [
+  {
+    image:
+      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
+    title: "How SSO is Changing Security",
+    excerpt:
+      "Explore the impact of Single Sign-On on modern cybersecurity and user experience.",
+    author: "Jane Doe",
+    date: "May 10, 2024",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
+    title: "Blockchain for Business",
+    excerpt:
+      "How blockchain technology is revolutionizing business security and transparency.",
+    author: "John Smith",
+    date: "May 8, 2024",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80",
+    title: "Red Team vs Blue Team: Explained",
+    excerpt:
+      "A deep dive into the world of cybersecurity defense and attack simulations.",
+    author: "Alice Lee",
+    date: "May 5, 2024",
+  },
+];
 
 export default function Home() {
   return (
@@ -55,69 +85,9 @@ export default function Home() {
           Latest Blog Posts
         </h2>
         <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}>
-          {/* BlogCard components will go here */}
-          <div
-            style={{
-              background: "#fff",
-              color: "#222",
-              borderRadius: 16,
-              boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
-              padding: 24,
-              minWidth: 320,
-              flex: 1,
-            }}
-          >
-            <h3
-              style={{ fontWeight: 700, fontSize: "1.25rem", marginBottom: 8 }}
-            >
-              How SSO is Changing Security
-            </h3>
-            <p style={{ fontSize: "1rem", marginBottom: 12 }}>
-              Explore the impact of Single Sign-On on modern cybersecurity and
-              user experience.
-            </p>
-            <a
-              href="#"
-              style={{
-                color: "var(--blog-primary)",
-                fontWeight: 600,
-                textDecoration: "underline",
-              }}
-            >
-              Read More
-            </a>
-          </div>
-          <div
-            style={{
-              background: "#fff",
-              color: "#222",
-              borderRadius: 16,
-              boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
-              padding: 24,
-              minWidth: 320,
-              flex: 1,
-            }}
-          >
-            <h3
-              style={{ fontWeight: 700, fontSize: "1.25rem", marginBottom: 8 }}
-            >
-              Blockchain for Business
-            </h3>
-            <p style={{ fontSize: "1rem", marginBottom: 12 }}>
-              How blockchain technology is revolutionizing business security and
-              transparency.
-            </p>
-            <a
-              href="#"
-              style={{
-                color: "var(--blog-primary)",
-                fontWeight: 600,
-                textDecoration: "underline",
-              }}
-            >
-              Read More
-            </a>
-          </div>
+          {blogs.map((blog, idx) => (
+            <BlogCard key={idx} {...blog} />
+          ))}
         </div>
       </div>
     </div>
